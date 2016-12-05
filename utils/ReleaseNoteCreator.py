@@ -180,3 +180,5 @@ class ReleaseNoteCreator:
         release_note_file = open(self.path_to_new_file, 'w')
         release_note_file.write(new_string)
         release_note_file.close()
+
+
