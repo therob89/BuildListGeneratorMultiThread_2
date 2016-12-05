@@ -1,0 +1,173 @@
+Release $TAGNAME_ - $TODAY_
+
+Table of contents:
+	1. Incremental Release
+		- Deploy Steps
+			1- Artifact Lists
+			2- Build files
+			3- IS - Configuration - Packages - Variable Substitution
+			4- BPM-IS - Packages 
+			5- BPM Projects
+			6- DB - Scripts
+	2. Full Release
+	        1- Build files
+			2- IS - Configuration (CustomConfig-Cnf-GlobalVars)
+			3- BPM-IS - Packages
+			4- BPM Projects
+			5- DB - Scripts
+	3. IS-Configurations
+	4. Post-deploy actions
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                               *
+*             1. Incremental Release (from $PREVIOUS_TAG)       *
+*                                                               *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+============ Build File ============
+
+The following name for the relative build list xml:
+	- $BUILD_LIST_FILE_NAME
+
+============ ARTIFACTS_LIST ============
+
+$ARTIFACTS_LIST_
+
+
+============ IS - Packages =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$IS_PACKAGES_
+
+
+============ BPM - Projects =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$BPM_PROJECTS_
+
+
+============ Custom Config =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$CUSTOM_CONFIG_
+
+
+============ CAF =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$CAF_
+
+
+============ DB - Scripts ============
+
+$DB_SCRIPTS_
+
+
+============ CACHE ====================
+
+$CACHE_DELTA_
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                               *
+*            2. Full Release (of $FULL_POINT_)                  *
+*                                                               *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+============ Build Files ============
+
+The following file name for the relative build list FULL xml:
+	- $BUILD_LIST_FULL_FILE_F
+
+
+============ IS - Packages =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$FULL_PACKAGES
+
+
+============ BPM - Projects =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$FULL_PROJECTS
+
+
+============ Custom Config =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$FULL_CONFIG
+
+
+============ CAF =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+$FULL_CAF
+
+
+============ DB - Scripts ============
+
+$FULL_DB
+
+============ CACHE ====================
+
+$CACHE_FULL_
+
+
+============ IS - Configuration ============
+
+- Articles on the destination IS (indicated in parentheses) must be brought the following Integration Server objects:
+
+	- ENDPOINTS ALIAS (Provider)
+  		Name:BPM
+			Apply the following variable substitution
+			    Http consumer endpoint:
+				(System Test):
+			 	http://RMHADOOPSRV06:52900/
+
+				(IntegrationTest):
+			 	http://rm-tst-bpmis-01:52900/
+
+				(UAT):
+			 	http://rm-uat-bpmis-01:52900/
+
+	- ACLS:
+	    $ACLS_
+
+
+
+============= POST DEPLOY ACTIONS =============
+- After the deploy, the deployer has to restart every IS instance server:
+	1.	Default
+	2.	Brick
+	3.	VM
+	4.	EM
+
+- At least the deployer must enable to the execution every processes deployed before on this path:
+  http://[BPM_MWS HOST]:[BPM_MWS_PORT]/webm.apps.config.process.list
