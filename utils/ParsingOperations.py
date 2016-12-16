@@ -19,6 +19,7 @@ cnf_xpath_map = {'consumerHTTP': "./record",
                  'providerHTTP': "./record",
                  'providerHTTPS': "./record",
                  'globalVariables': ".//value[@name='key']",
+                 'globalVariables_v': ".//value[@name='value']",
                  'acls': ".//record[@javaclass='com.wm.app.b2b.server.ACLGroup']"}
 
 
@@ -72,10 +73,18 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                 if data:
                     data_el = data[0]
                     if 'trunk' in data_el:
-                        data_el = data_el.split('trunk/')[1]
+                        data_elements = data_el.split('trunk/')
+                        if len(data_elements) > 1:
+                            data_el = data_elements[1]
+                        else:
+                            continue
                     elif 'tags' in data_el:
-                        data_el = data_el.split('tags/')[1]
-                        data_el = data_el[data_el.find('/')+1:]
+                        data_elements = data_el.split('tags/')
+                        if len(data_elements) > 1:
+                            data_el = data_elements[1]
+                        else:
+                            continue
+                        data_el = data_el[data_el.find('/') + 1:]
                     action = path.attrib["action"]
                     kind = path.attrib["kind"]
                     if handle_delete:
@@ -247,7 +256,6 @@ def parse_cnf_file(cnf_type, input_file):
         raise IOError()
 
 
-
 #print(parse_config_file("C:\\Users\\OCTO\\PycharmProjects\\BuildListToolMultithreading\\config\\properties.conf"))
 
 
@@ -264,3 +272,39 @@ f.close()
 #ET.parse("C:\\Users\\OCTO\\PycharmProjects\\BuildListToolMultithreading\\prova.xml")
 
 '''
+
+
+def parse_cnf_file_wrapper(cnf_type, input_file):
+    if cnf_type == 'globalVariables':
+        return parse_global_var(input_file)
+    elif cnf_type == 'acls':
+        pass
+    elif cnf_type == 'consumerHTTP' or cnf_type == 'consumerHTTPS':
+        pass
+    elif cnf_type == 'providerHTTP' or cnf_type == 'providerHTTPS':
+        pass
+
+
+def parse_global_var(input_file):
+    xpath_key = ".//value[@name='key']"
+    xpath_val = ".//value[@name='value']"
+    tree = ET.parse(input_file)
+    root = tree.getroot()
+    res_key = set()
+    res_val = dict()
+    elements_key = root.findall(xpath_key)
+    elements_val = root.findall(xpath_val)
+    i = 0
+    try:
+        for key in elements_key:
+            key_text = key.text
+            res_key.add(key_text)
+            res_val[key_text] = elements_val[i].text
+            i += 1
+        return res_key, res_val
+    except KeyError as e:
+        logger.error('An error occurs during parsing global var file..return this error %s ' % str(e))
+        sys.exit(-2)
+    except IOError as e:
+        logger.error("Check input file " + input_file + "error:" + str(e.strerror))
+        sys.exit(-2)

@@ -2,7 +2,6 @@ import logging
 import utils.ParsingOperations as Pt
 import utils.VersioningTool as Vt
 from collections import defaultdict
-import sys
 
 __author__ = 'Roberto Palamaro'
 __version__ = '1.0'
@@ -13,7 +12,7 @@ logger = logging.getLogger(my_logger)
 
 
 # Generic Bpm Class Type
-class BpmDataType(object):
+class BamDataType(object):
     def __init__(self, data_type, server_list, log_file, list_file, is_full=False):
         self.data_type = data_type
         self.list_file = list_file
@@ -43,10 +42,9 @@ class BpmDataType(object):
 
 
 # Class for Config
-class Config(BpmDataType):
+class Config(BamDataType):
     config_regex_properties = ".*\.properties"
     config_regex_cnf = ".*\.cnf"
-    config_regex_send_email = ".*sendEmail.+"
     config_xpath = ".paths//path"
     cache_element_regex = ".*Caching/\w+.xml"
 
@@ -86,8 +84,6 @@ class Config(BpmDataType):
                                                        self.config_xpath, is_full=self.is_full))
         self.cnf_list = sorted(Pt.get_data_type_set(self.log_file, self.config_regex_cnf,
                                                     self.config_xpath, is_full=self.is_full))
-       # send_email_ds = Pt.get_data_type_set(self.log_file, self.config_regex_send_email,
-                                           #  self.config_xpath, is_full=self.is_full)
 
         cache_ds = sorted(Pt.get_data_type_set(self.log_file, self.cache_element_regex,
                                                self.config_xpath, is_full=self.is_full))
@@ -96,20 +92,16 @@ class Config(BpmDataType):
                 # 1. Return first custom config
                 for custom_conf in custom_config_ds:
                     server, _property, rel_string = self.get_server_from_property_and_return_element(custom_conf)
-                    self.config_by_server[server].add("bpm_cstcfg_" + _property)
-                    self.release_note_objects_by_server[server].add("bpm_cstscfg_" + rel_string)
-                #for s_mail in send_email_ds:
-                  #  server, _prop, rel_string = self.get_server_from_property_and_return_element(s_mail)
-                  #  self.config_by_server[server].add("bpm_cstcfg_" + _prop)
-                    #self.release_note_objects_by_server[server].add("bpm_cstscfg_" + rel_string)
+                    self.config_by_server[server].add("bam_cstcfg_" + _property)
+                    self.release_note_objects_by_server[server].add("bam_cstscfg_" + rel_string)
                 for _cnf in self.cnf_list:
                     server, _cnf, rel_string = self.get_server_from_property_and_return_element(_cnf)
-                    self.config_by_server[server].add("bpm_cf_is_" + _cnf)
-                    self.release_note_objects_by_server[server].add("bpm_cf_is_" + rel_string)
+                    self.config_by_server[server].add("bam_cf_is_" + _cnf)
+                    self.release_note_objects_by_server[server].add("bam_cf_is_" + rel_string)
                 for _cache in cache_ds:
                     server, _cnf, rel_string = self.get_server_from_property_and_return_element(_cache)
-                    self.config_by_server[server].add("bpm_cf_is_" + _cnf)
-                    self.cache_list_output.append("bpm_cf_is_" + rel_string)
+                    self.config_by_server[server].add("bam_cf_is_" + _cnf)
+                    self.cache_list_output.append("bam_cf_is_" + rel_string)
                     #self.release_note_objects_by_server[server].add("bpm_cf_is_" + rel_string)
                 for server in self.server_list:
                     for el in sorted(self.config_by_server[server]):
@@ -129,10 +121,10 @@ class Config(BpmDataType):
 
 
 # Class for Process
-class Process(BpmDataType):
-    bpm_projects_regex = "IttBpm\w+/\w+.(?=.config|.process)"
+class Process(BamDataType):
+    bpm_projects_regex = "IttBam\w+/\w+.(?=.config|.process)"
     bpm_projects_xpath = ".paths//path[@kind='file']"
-    process_ds = "bpm_prj_is_"
+    process_ds = "bam_prj_is_"
 
     def __init__(self, data_type, server_list, log_file, list_file, translator, base_url, is_full=False):
         super(Process, self).__init__(data_type, server_list, log_file, list_file, is_full)
@@ -141,7 +133,7 @@ class Process(BpmDataType):
         logger.debug('Translator file for projects parsed correctly')
         self.output_process_by_server = defaultdict(set)
         self.output_list = list()
-        self.base_url = base_url+'/bpmProjects/'
+        self.base_url = base_url+'/bamProjects/'
         self.version_holder = Vt.VersionHolder(self.base_url, package_flag=False, full_mode=self.is_full)
         self.fill_list_file()
 
@@ -154,7 +146,7 @@ class Process(BpmDataType):
         for out_server in out_servers:
             s = out_server.split('_')[-1].lower() + ":"
             s_v = s[:-1]
-            out_string = str(self.process_ds + s + "bpmProjects/" + element + ":" + str(out_server))
+            out_string = str(self.process_ds + s + "bamProjects/" + element + ":" + str(out_server))
             release_note_string = "%s \t %s \t %s \t Version: %s" \
                                   % (self.process_ds + s_v, element, str(out_server), version)
             self.release_note_objects_by_server[out_server].add(release_note_string)
@@ -193,10 +185,10 @@ class Process(BpmDataType):
 
 
 # Class for Package
-class Package(BpmDataType):
+class Package(BamDataType):
     packages_regex = "Itt\w+(?=/)"
     packages_xpath = ".paths//path[@kind='file']"
-    package_ds = "bpm_pkg_is_"
+    package_ds = "bam_pkg_is_"
 
     def __init__(self, data_type, server_list, log_file, list_file, translator, base_url, is_full=False):
         super(Package, self).__init__(data_type, server_list, log_file, list_file, is_full)
@@ -245,7 +237,7 @@ class Package(BpmDataType):
                 for server in self.server_list:
                     for pkg in sorted(self.output_packages_by_server[server]):
                         pkg_el = "%s\n" % pkg
-                        if server == 'bpm_is_default':
+                        if server == 'bam_is_default':
                             self.output_list_def.append(pkg_el)
                         else:
                             self.output_list_for_pkg_no_def.append(pkg_el)
@@ -265,7 +257,7 @@ class Package(BpmDataType):
 
 
 # Class for Package
-class Database(BpmDataType):
+class Database(BamDataType):
     db_regex = "/database/.*"
     db_xpath = ".paths//path"
 
@@ -293,10 +285,10 @@ class Database(BpmDataType):
                 self.db_dml_rbk.append(db_el)
             elif 'dml' in db_el_lower and 'rollback' not in db_el_lower:
                 self.db_dml.append(db_el)
-        sql_header = 'bpm_sql:'
-        sql_header_r = 'bpm_sql'
-        sql_rbk_header = 'bpm_sql_rbck:'
-        sql_rbk_header_r = 'bpm_sql_rbck'
+        sql_header = 'bam_sql:'
+        sql_header_r = 'bam_sql'
+        sql_rbk_header = 'bam_sql_rbck:'
+        sql_rbk_header_r = 'bam_sql_rbck'
         if len(self.server_list) > 1:
             logger.warning('Database have more than 1 server target...check it')
         server = ':'+self.server_list[0]
@@ -334,52 +326,38 @@ class Database(BpmDataType):
         return self.release_note_all_objs
 
 
-# Class for Caf
-class Caf(BpmDataType):
-    caf_regex = "(?:/caf)/[A-Z]\w+"
-    caf_xpath = ".paths//path[@kind='file']"
-    caf_cf_header = 'bpm_cnf_mws:'
-    caf_cf_release_header = 'bpm_cnf_mws'
-    caf_portlet_header = 'bpm_portlet_mws:'
-    caf_portlet_r_header = 'bpm_portlet_mws'
+#Class Optimize
+
+class Optimize(BamDataType):
+    optimize_xpath = ".paths//path"
+    optimize_regex = "/optimize/.*"
 
     def __init__(self, data_type, server_list, log_file, list_file, is_full=False):
-        super(Caf, self).__init__(data_type, server_list, log_file, list_file, is_full)
+        super(Optimize, self).__init__(data_type, server_list, log_file, list_file, is_full)
+        self.output_config = list()
+        self.optimize_by_server = defaultdict(set)
+        # To process later
+        self.output_optimize = list()
         if len(server_list) == 0:
-            sys.exit('Config must have at least one target server...abort')
-        self.output_caf = list()
+            raise RuntimeError('Optimize must have at least one target server')
         self.fill_list_file()
 
     def fill_list_file(self):
         logger.debug('Creating list file for %s' % self.data_type)
-        caf_ds = sorted(Pt.get_data_type_set(self.log_file, self.caf_regex, self.caf_xpath, is_full=self.is_full))
-        caf_server = self.server_list[0]
-        try:
-            with open(self.list_file, "w") as list_file:
-                for caf_record in caf_ds:
-                    if 'MWSUserManagement' in caf_record:
-                        out_string = self.caf_cf_header + caf_record[1:] + ":" + caf_server
-                        out_rel_s = "%s \t %s \t %s" \
-                                    % (self.caf_cf_release_header, caf_record[1:], caf_server)
-                    else:
-                        out_string = self.caf_portlet_header + caf_record[1:] + ":" + caf_server
-                        out_rel_s = "%s \t %s \t %s" \
-                                    % (self.caf_portlet_r_header, caf_record[1:], caf_server)
-                    self.output_caf.append("%s\n" % out_string)
-                    self.release_note_all_objs.append("%s\n" % out_rel_s)
-                    list_file.write("%s\n" % out_string)
-            list_file.close()
-        except IOError:
-            logger.error("IO ERROR check -> caf list file -> " + self.list_file)
+        optimize_res = sorted(Pt.get_data_type_set(self.log_file, self.optimize_regex, self.optimize_xpath,
+                                                   is_full=self.is_full))
+        for el in optimize_res:
+            el = 'bam_cnf_optimize:' + el + ':' + self.server_list[0]
+            self.output_optimize.append("%s\n" % el)
 
     def get_output(self):
-            return self.output_caf
+            return self.output_optimize
 
     def get_release_note_objects(self):
         return self.release_note_all_objs
 
 
-class BpmWrapper:
+class BamWrapper:
 
     def __init__(self, data_type, data_types, log_files, list_files, server_list, translator, base_url, is_full=False):
         self.data_types = data_types
@@ -396,18 +374,19 @@ class BpmWrapper:
             if d_t == 'packages':
                 self.data_holder[d_t] = Package(d_t, self.server_list, self.log_files, self.list_files,
                                                 self.translator_file, self.base_url, is_full)
-            elif d_t == 'bpmProjects':
+            elif d_t == 'bamProjects':
                 self.data_holder[d_t] = Process(d_t, self.server_list, self.log_files, self.list_files,
                                                 self.translator_file, self.base_url, is_full)
             elif d_t == 'config':
                 self.data_holder[d_t] = Config(d_t, self.server_list, self.log_files, self.list_files, is_full)
-            elif d_t == 'caf':
-                self.data_holder[d_t] = Caf(d_t, self.server_list, self.log_files, self.list_files, is_full)
             elif d_t == 'database':
-                self.data_holder[d_t] = Database(d_t, server_list, self.log_files, self.list_files,
+                self.data_holder[d_t] = Database(d_t, self.server_list, self.log_files, self.list_files,
+                                                 is_full)
+            elif d_t == 'optimize':
+                self.data_holder[d_t] = Optimize(d_t, self.server_list, self.log_files, self.list_files,
                                                  is_full)
             else:
-                logger.warning('Unknown data type: %s passed to wrapper' % d_t)
+                logger.warning('Unknown data type: %s passed to Bam wrapper' % d_t)
         except KeyError as k_e:
             raise KeyError('An error occur during wrapper initialization %s ' % str(k_e))
 

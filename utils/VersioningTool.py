@@ -64,7 +64,7 @@ class VersionHolder:
                 logger.warning("Manifest for %s doesn't exits" % package)
             return version
         except RuntimeError:
-            logger.error('Error occurs while getting version for process %s ' % package)
+            logger.error('Error occurs while getting version for package %s ' % package)
 
     def get_runtime_version(self, process):
         try:

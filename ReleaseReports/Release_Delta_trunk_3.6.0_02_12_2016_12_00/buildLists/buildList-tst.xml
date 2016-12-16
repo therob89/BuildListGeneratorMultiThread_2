@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DeployAutomation xsi:schemaLocation="http://www.octotelematics.com/deploy/projectdefinitionbuilder/0.1 deployautomation.xsd" xmlns="http://www.octotelematics.com/deploy/projectdefinitionbuilder/0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <svnbase>https://scm-coconet.capgemini.com/svn/repos/octo/bpm/source/tags/3.7.0</svnbase>
+    <DeploymentSet>
+        <name>bpm_package_is_brick</name>
+        <TargetGroup>
+            <name>bpm_is_brick</name>
+            <Composite>
+                <svnpath>packages/IttBpmEndUserManagementConsumer</svnpath>
+                <name>IttBpmEndUserManagementConsumer</name>
+                <type>IS</type>
+            </Composite>
+        </TargetGroup>
+    </DeploymentSet>
+    <DeploymentSet>
+        <name>bpm_package_is_vm</name>
+        <TargetGroup>
+            <name>bpm_is_vm</name>
+            <Composite>
+                <svnpath>packages/IttBpmEndUserContractConfigurationActivationSupport</svnpath>
+                <name>IttBpmEndUserContractConfigurationActivationSupport</name>
+                <type>IS</type>
+            </Composite>
+            <Composite>
+                <svnpath>packages/IttBpmEndUserManagementConsumer</svnpath>
+                <name>IttBpmEndUserManagementConsumer</name>
+                <type>IS</type>
+            </Composite>
+        </TargetGroup>
+    </DeploymentSet>
+    <DeploymentSet>
+        <name>bpm_package_is_em</name>
+        <TargetGroup>
+            <name>bpm_is_em</name>
+            <Composite>
+                <svnpath>packages/IttBpmEndUserManagementConsumer</svnpath>
+                <name>IttBpmEndUserManagementConsumer</name>
+                <type>IS</type>
+            </Composite>
+        </TargetGroup>
+    </DeploymentSet>
+</DeployAutomation>
+

@@ -8,7 +8,8 @@ import utils.ParsingOperations as ParserTool
 import utils.SvnOperations as SvnTool
 import utils.ExternalModuleCaller as ModuleCaller
 import utils.BpmDataType as BpmData
-import utils.ReleaseNoteCreator as Rnc
+import utils.BamDataType as BamData
+import utils.ReleaseNoteCreator_v2 as Rnc
 import re
 from collections import defaultdict
 import time
@@ -30,6 +31,7 @@ bpm_root = 'BpmSvnRoot'
 bam_root = 'BamSvnRoot'
 artf_list = 'artifactList'
 bpm_data_type = 'BpmDataType'
+bam_data_type = 'BamDataType'
 ReportsFolder = 'ReportsFolder'
 template_file = 'template_file'
 xml_jar = 'xml_jar'
@@ -65,22 +67,32 @@ def thread_log_routine(url, output_file, full=False, artifacts=None):
             logger.error('%s: Error at svn log %s...exit with error' % (thread_name, ret))
             sys.exit(-3)
     except SystemExit:
-        logger.error("%s end WITH ERROR : %s" % thread_name)
+        logger.error("%s end WITH ERROR" % thread_name)
         failed_threads.put(thread_name)
 
 
 def thread_list_routine(data_type, data_types, server_list, log_file, list_file, translator,
-                        curr_svn_link, full_mode, output_for_thread, release_note_objs):
+                        curr_svn_link, full_mode, output_for_thread, release_note_objs, _mode):
     thread_name = str(threading.current_thread().getName())
     try:
-        wrapper = BpmData.BpmWrapper(data_type,
-                                     data_types,
-                                     log_file,
-                                     list_file,
-                                     server_list,
-                                     translator=translator,
-                                     base_url=curr_svn_link,
-                                     is_full=full_mode)
+        if _mode == 'bam':
+            wrapper = BamData.BamWrapper(data_type,
+                                         data_types,
+                                         log_file,
+                                         list_file,
+                                         server_list,
+                                         translator=translator,
+                                         base_url=curr_svn_link,
+                                         is_full=full_mode)
+        else:
+            wrapper = BpmData.BpmWrapper(data_type,
+                                         data_types,
+                                         log_file,
+                                         list_file,
+                                         server_list,
+                                         translator=translator,
+                                         base_url=curr_svn_link,
+                                         is_full=full_mode)
         object_data = wrapper.get_object_data_holder()
         for el in object_data.get_output():
             output_for_thread.append(el)
@@ -92,33 +104,45 @@ def thread_list_routine(data_type, data_types, server_list, log_file, list_file,
         failed_threads.put(thread_name)
 
 
-def write_cnf_to_file(cnf_f, cnf_type_with_ext, release_note_creator):
+def write_cnf_to_file(cnf_f, cnf_type_with_ext, release_note_creator, server):
     try:
         if cnf_f:
             file_only_name = cnf_type_with_ext.split(".cnf")[0]
-            _cnf_to_write = ParserTool.parse_cnf_file(file_only_name, cnf_f)
+            _global_val = None
+            if file_only_name == 'globalVariables':
+                _cnf_to_write, _global_val = ParserTool.parse_global_var(cnf_f)
+            else:
+                _cnf_to_write = ParserTool.parse_cnf_file(file_only_name, cnf_f)
             if not _cnf_to_write:
-                release_note_creator.signal_no_cnf(file_only_name)
                 if os.path.exists(cnf_f):
                     os.remove(cnf_f)
                     return
-            release_note_creator.write_cnf_to_release_note(file_only_name, _cnf_to_write)
+            if file_only_name == 'globalVariables':
+                release_note_creator.add_object_to_release_note(file_only_name, server, objects_key=_cnf_to_write,
+                                                                objects_value=_global_val)
+            else:
+                release_note_creator.add_object_to_release_note(file_only_name, server, objects_key=_cnf_to_write)
             with open(cnf_f, 'w') as _f:
                 for el in _cnf_to_write:
                     _f.write(el + "\n")
             _f.close()
     except IOError as er:
-        logger.error("[ERROR]: Error for cnf file " + cnf_f + "strerror" + str(er.strerror))
+        logger.error("[ERROR]: Error for cnf file " + cnf_f + " error" + str(er.strerror))
         sys.exit(-1)
 
 
 def write_delta_cnf_to_file(cnf_file_current,
-                            cnf_file_previous, cnf_type_with_ext, out_file, release_note_creator):
+                            cnf_file_previous, cnf_type_with_ext, out_file, release_note_creator, server):
     try:
         file_only_name = cnf_type_with_ext.split(".cnf")[0]
+        _global_val, _p_global_val = None, None
         if cnf_file_current and cnf_file_previous:
-            _cnf_current = set(ParserTool.parse_cnf_file(file_only_name, cnf_file_current))
-            _cnf_previous = set(ParserTool.parse_cnf_file(file_only_name, cnf_file_previous))
+            if file_only_name == 'globalVariables':
+                _cnf_current, _global_val = ParserTool.parse_global_var(cnf_file_current)
+                _cnf_previous, _p_global_val = ParserTool.parse_global_var(cnf_file_previous)
+            else:
+                _cnf_current = set(ParserTool.parse_cnf_file(file_only_name, cnf_file_current))
+                _cnf_previous = set(ParserTool.parse_cnf_file(file_only_name, cnf_file_previous))
             if _cnf_current is None and _cnf_previous is None:
                 release_note_creator.signal_no_cnf(file_only_name)
                 return
@@ -126,7 +150,19 @@ def write_delta_cnf_to_file(cnf_file_current,
             if len(diff) == 0:
                 return 0
             else:
-                release_note_creator.write_cnf_to_release_note(file_only_name, diff)
+                if file_only_name == 'globalVariables':
+                    temp_g_key, temp_g_val = list(), dict()
+                    for key in _global_val:
+                        # In this case we want to check if a global var is changed
+                        if key not in diff and _global_val[key] != _p_global_val[key]:
+                            diff.add(key)
+                    for el in diff:
+                        temp_g_key.append(el)
+                        temp_g_val[el] = _global_val[el]
+                    release_note_creator.add_object_to_release_note(file_only_name, server, objects_key=temp_g_key,
+                                                                    objects_value=temp_g_val)
+                else:
+                    release_note_creator.add_object_to_release_note(file_only_name, server, diff)
                 with open(out_file, 'w') as f:
                     for el in diff:
                         if el:
@@ -143,7 +179,7 @@ def write_delta_cnf_to_file(cnf_file_current,
 
 class BpmDataHolder:
 
-    def __init__(self, config, tag, environment,  current_point, previous_point=None, artifacts=None):
+    def __init__(self, config, tag, environment,  current_point, mode_, previous_point=None, artifacts=None):
         self.prev_svn_link = previous_point
         self.curr_svn_link = current_point
         self.target_tag = tag
@@ -152,6 +188,7 @@ class BpmDataHolder:
         self.thread_output_for_buildList = dict()
         self.release_note_objects = dict()
         self.config = config
+        self.mode = mode_
         self.is_full = False
         self.wrapper = None
         self.cache_list = list()
@@ -175,7 +212,11 @@ class BpmDataHolder:
                                       + prev_point_normalized + "_" + curr_time
             self.release_folder = os.path.join(reports_folder, release_folder_name)
             self.build_list_folder = os.path.join(self.release_folder, 'buildLists')
-            self.data_type = list(config[bpm_data_type])
+            if self.mode == 'bam':
+                self.data_type = list(config[bam_data_type])
+
+            else:
+                self.data_type = list(config[bpm_data_type])
             self.cnf_list = list(config[cnf_list])
             logger.debug(
                 'BpmDataHolder init for these data types : %s..reports will be created into folder %s'
@@ -209,14 +250,20 @@ class BpmDataHolder:
                 self.release_note_objects[d_h] = list()
             logger.info('Creating Log Files')
             self.create_log_files()
-            self.translator_file_name = self.config['server_map']
+            if self.mode == 'bam':
+                self.translator_file_name = self.config['server_map_bam']
+            else:
+                self.translator_file_name = self.config['server_map']
             self.translator_file = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                                                 'config/', self.translator_file_name))
             logger.info('Creating List files')
             self.create_list_files()
             logger.debug('Generating buildList XML')
             build_xml_jar = self.config[xml_jar]
-            base_svn_root = self.config[bpm_root]
+            if self.mode == 'bam':
+                base_svn_root = self.config[bam_root]
+            else:
+                base_svn_root = self.config[bpm_root]
             jar_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '.', 'externalModules/'+build_xml_jar))
             ModuleCaller.generate_build_xml(jar_path, base_svn_root + self.target_tag,
                                             self.build_list_list_file, self.build_list_xml_file, self.cnf_folder)
@@ -231,9 +278,19 @@ class BpmDataHolder:
     def create_log_files(self):
         thread_list = []
         for d_t in self.data_type:
-            th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
-                                  args=(self.curr_svn_link+'/' + d_t + '/',
-                                        self.log_files[d_t], self.is_full, self.artifacts))
+            if d_t == 'database':
+                if self.mode == 'bpm':
+                    th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
+                                          args=(self.curr_svn_link + '/' + d_t + '/DB_DELTA/',
+                                                self.log_files[d_t], self.is_full, self.artifacts))
+                else:
+                    th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
+                                          args=(self.curr_svn_link + '/' + d_t,
+                                                self.log_files[d_t], self.is_full, self.artifacts))
+            else:
+                th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
+                                      args=(self.curr_svn_link + '/' + d_t + '/',
+                                            self.log_files[d_t], self.is_full, self.artifacts))
             thread_list.append(th)
             th.start()
         for th in thread_list:
@@ -242,8 +299,8 @@ class BpmDataHolder:
         global failed_threads
         if not failed_threads.empty():
             fails = ''
-            for el in iter(failed_threads.get(), None):
-                fails += str(el) + ' '
+            while not failed_threads.empty():
+                fails += str(failed_threads.get()) + ' '
             logger.error('An error occurs during creating list files..the failed threads are %s' % fails)
             sys.exit(-1)
         logger.info('Log Files created Successfully')
@@ -262,7 +319,8 @@ class BpmDataHolder:
         try:
             if os.path.exists(self.cnf_folder):
                 logger.warning('Cnf folder already exists...')
-            os.makedirs(self.cnf_folder)
+            else:
+                os.makedirs(self.cnf_folder)
             if not self.is_full:
                 os.makedirs(temp_curr)
                 os.makedirs(temp_prev)
@@ -278,7 +336,7 @@ class BpmDataHolder:
                             logger.warning('Invalid CNF PATH')
                             continue
                         current_file_path = os.path.join(cnf_server_folder, file_with_ext)
-                        write_cnf_to_file(current_file_path, file_with_ext, self.release_note)
+                        write_cnf_to_file(current_file_path, file_with_ext, self.release_note, server)
                     else:
                         svn_prev_cnf_path = self.prev_svn_link + '/' + str(_cnf)
                         SvnTool.check_out_file(svn_curr_cnf_path, temp_curr)
@@ -287,7 +345,7 @@ class BpmDataHolder:
                         path_to_prev = os.path.join(temp_prev, file_with_ext)
                         path_to_out_file = os.path.join(cnf_server_folder, file_with_ext)
                         if write_delta_cnf_to_file(path_to_curr, path_to_prev, file_with_ext,
-                                                   path_to_out_file, self.release_note) == 0:
+                                                   path_to_out_file, self.release_note, server) == 0:
                             os.removedirs(cnf_server_folder)
             if not self.is_full:
                 shutil.rmtree(temp_curr)
@@ -299,11 +357,44 @@ class BpmDataHolder:
             logger.error('An error occurs while creating CNF folders or file: %s' % os.strerror(os_e.errno))
             sys.exit(-1)
 
+    def process_cache_managers(self, cache_list):
+        _flag = True
+        try:
+            if not os.path.exists(self.cnf_folder):
+                _flag = False
+                if self.is_full:
+                    self.cnf_folder = os.path.join(self.release_folder, "FULL_CNF")
+                    logger.debug('Processing Caches in full mode')
+                else:
+                    self.cnf_folder = os.path.join(self.release_folder, "DELTA_CNF")
+                os.makedirs(self.cnf_folder)
+            for server in iter(cache_list):
+                cnf_server_folder = os.path.join(self.cnf_folder, server)
+                if not _flag:
+                    os.makedirs(cnf_server_folder)
+                cache_list_file = os.path.join(cnf_server_folder, 'cacheManager.list')
+                _f = open(cache_list_file, 'w')
+                cache_name_list = list()
+                for el in cache_list[server]:
+                    only_name = os.path.basename(el).split('.xml')[0]
+                    cache_name_list.append(only_name)
+                    _f.write("%s\n" % str(only_name))
+                self.release_note.add_object_to_release_note('cache', server, objects_key=cache_name_list)
+                _f.close()
+            logger.debug('Cache configurations write correctly')
+        except OSError as os_e:
+                logger.error('An error occurs while process Cache configurations: %s'
+                             % os.strerror(os_e.errno))
+                sys.exit(-1)
+
     def create_list_files(self):
         logger.debug('Creating wrappers for objects')
         thread_list = []
         for d_t in self.data_type:
-            server_list_key = d_t + '_server'
+            if self.mode == 'bam':
+                server_list_key = d_t + '_server_bam'
+            else:
+                server_list_key = d_t + '_server'
             server_list = self.config[server_list_key]
             if isinstance(server_list, str):
                 server_list = [server_list]
@@ -317,7 +408,8 @@ class BpmDataHolder:
                                         self.curr_svn_link,
                                         self.is_full,
                                         self.thread_output_for_buildList[d_t],
-                                        self.release_note_objects[d_t]))
+                                        self.release_note_objects[d_t],
+                                        self.mode))
             thread_list.append(th)
             th.start()
         for th in thread_list:
@@ -326,8 +418,8 @@ class BpmDataHolder:
         global failed_threads
         if not failed_threads.empty():
             fails = ''
-            for el in iter(failed_threads.get(), None):
-                fails += str(el) + ' '
+            while not failed_threads.empty():
+                fails += str(failed_threads.get()) + ' '
             logger.error('An error occurs during creating list files..the failed threads are %s' % fails)
             sys.exit(-1)
         logger.info('List Files created Successfully!!!!!!!')
@@ -336,17 +428,20 @@ class BpmDataHolder:
         with open(self.build_list_list_file, 'w') as f:
             for d_t in self.data_type:
                 if d_t == 'config':
-                    output_config, cnf_res, cache_list = self.thread_output_for_buildList[d_t]
+                    output_config, cnf_res, cache_list, cache_list_output = self.thread_output_for_buildList[d_t]
                     if not cnf_res:
                         logger.info('No CNF changes found go ahead')
-                        self.release_note.signal_no_cnfs(self.cnf_list)
                     else:
                         logger.debug('CNF Found...processing files')
                         self.cnf_flag = True
                         self.process_cnf_files(cnf_res)
                     if cache_list:
                         logger.debug('Found Cache configuration')
-                        self.cache_list = cache_list
+                        self.cache_list = cache_list_output
+                        self.process_cache_managers(cache_list)
+                        logger.debug('Writing Cache to the Release Note')
+                    else:
+                        logger.debug('No Cache configuration file..go ahead')
                     for el in output_config:
                         f.write(el)
                 elif d_t == 'packages':
@@ -355,11 +450,15 @@ class BpmDataHolder:
                             f.write(el)
                     for el in _def:
                         f.write(el)
-                elif d_t == 'bpmProjects':
-                    _db_list = self.thread_output_for_buildList[d_t]
-                    for el in _db_list:
+                elif d_t == 'bpmProjects' or 'bamProjects':
+                    _prj_list = self.thread_output_for_buildList[d_t]
+                    for el in _prj_list:
                         f.write(el)
                 elif d_t == 'caf':
+                    _caf_list = self.thread_output_for_buildList[d_t]
+                    for el in _caf_list:
+                        f.write(el)
+                elif d_t == 'database':
                     _db_list = self.thread_output_for_buildList[d_t]
                     for el in _db_list:
                         f.write(el)
@@ -378,10 +477,8 @@ class BpmDataHolder:
 
             self.release_note.set_format_size(_x, _y, _z, _v)
             for d_t in self.data_type:
-                self.release_note.add_list_of_obj_to_release_note(d_t, self.release_note_objects[d_t])
+                self.release_note.add_object_to_release_note(d_t, objects_key=self.release_note_objects[d_t])
                 logger.debug('Added %s to release note file' % d_t)
-            if self.cache_list:
-                self.release_note.write_cache_to_release(self.cache_list)
         logger.info('BuildList.list created succesfully!!!')
         f.close()
 
@@ -428,6 +525,7 @@ def do_checks_on_urls():
 def start_parser():
     logger.debug('Checking Script Parameters')
     parser = argparse.ArgumentParser(description='BPM BuildList Generator')
+    parser.add_argument('--mode', choices=['bpm', 'bam'], default='bpm', required=True)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--full', action='store_const', const=2, help='Insert trunk | tags/rX-Y.Z')
     group.add_argument('--delta', action='store_const', const=2,
@@ -443,13 +541,14 @@ def start_parser():
     parser.add_argument('artifacts', nargs='*', help='List of artifacts')
     args = parser.parse_args()
     _env = args.env
+    _mode = args.mode
     _parameters = {}
     if args.full == 2:
         current_point = args.startPoint
         logger.debug("Requested a full on %s" % str(current_point))
         _parameters[bpm_c_point] = current_point
         _target_tag = args.target_tag
-        return True, _env, _parameters, _target_tag
+        return True, _env, _parameters, _target_tag, _mode
     if args.delta == 2:
         current_point = args.startPoint
         previous_point = args.previousPoint
@@ -466,9 +565,9 @@ def start_parser():
         _parameters[bpm_p_point] = previous_point
         _parameters[artf_list] = artifact_list
         logger.debug(
-            "Requested Delta mode on current_point: %s previous_point: %s on target_tag: %s and artifact_list %s"
+            "Requested Delta mode on current_point: %s previous_point: %s for target_tag: %s and artifact_list %s"
             % (str(current_point), str(previous_point), str(_target_tag), str(artifact_list)))
-        return False, _env, _parameters, _target_tag
+        return False, _env, _parameters, _target_tag, _mode
 
 
 if __name__ == '__main__':
@@ -478,21 +577,39 @@ if __name__ == '__main__':
     conf = ParserTool.parse_config_file(config_file)
     init_log_from_file(log_config_file)
     # Starting parser
-    is_a_full, env, parameters, target_tag = start_parser()
+    is_a_full, env, parameters, target_tag, mode = start_parser()
     try:
-        svn_link = conf[bpm_root] + parameters[bpm_c_point]
+        if mode == 'bam':
+            svn_link = conf[bam_root] + parameters[bpm_c_point]
+
+        else:
+            svn_link = conf[bpm_root] + parameters[bpm_c_point]
         logger.debug("Checking link for current point for bpm %s " % svn_link)
         err_msg = SvnTool.check_svn_url(svn_link)
         if not err_msg:
-            if is_a_full:
-                logger.debug('Passed...Go Ahead')
-                BpmDataHolder(conf, target_tag, env, svn_link)
+            if mode == 'bpm':
+                if is_a_full:
+                    logger.debug('Passed...Go Ahead')
+                    BpmDataHolder(conf, target_tag, env, svn_link, mode)
+                else:
+                    svn_p_link = conf[bpm_root] + parameters[bpm_p_point]
+                    logger.debug("Checking link for previous point for bpm %s " % str(svn_p_link))
+                    SvnTool.check_svn_url(svn_p_link)
+                    logger.debug('Current and Previous point are correct...Go Ahead')
+                    BpmDataHolder(conf, target_tag, env, svn_link, mode, svn_p_link, parameters[artf_list])
+            elif mode == 'bam':
+                logger.debug('Passed...Go Ahead in BAM mode')
+                if is_a_full:
+                    logger.debug('Passed...Go Ahead')
+                    BpmDataHolder(conf, target_tag, env, svn_link, mode)
+                else:
+                    svn_p_link = conf[bam_root] + parameters[bpm_p_point]
+                    logger.debug("Checking link for previous point for bpm %s " % str(svn_p_link))
+                    SvnTool.check_svn_url(svn_p_link)
+                    logger.debug('Current and Previous point are correct...Go Ahead')
+                    BpmDataHolder(conf, target_tag, env, svn_link, mode, svn_p_link, parameters[artf_list])
             else:
-                svn_p_link = conf[bpm_root] + parameters[bpm_p_point]
-                logger.debug("Checking link for previous point for bpm %s " % str(svn_p_link))
-                SvnTool.check_svn_url(svn_p_link)
-                logger.debug('Current and Previous point are correct...Go Ahead')
-                BpmDataHolder(conf, target_tag, env, svn_link, svn_p_link, parameters[artf_list])
+                logger.warning('Unknown mode...exiting')
         else:
             logger.error("Invalid Bpm Current point: %s, error %s" % (svn_link, err_msg))
             sys.exit(-2)

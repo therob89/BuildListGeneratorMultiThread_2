@@ -1,0 +1,166 @@
+Release tags/3.7.0 - 02_12_2016
+
+Table of contents:
+	1. Incremental Release
+		- Deploy Steps
+			1- Artifact Lists
+			2- Build files
+			3- IS - Configuration (CustomConfig-Cnf-GlobalVars)
+			4- BPM-IS - Packages 
+			5- BPM Projects
+			6- DB - Scripts
+	2. Full Release
+	        1- Build files
+			2- IS - Configuration (CustomConfig-Cnf-GlobalVars)
+			3- BPM-IS - Packages
+			4- BPM Projects
+			5- DB - Scripts
+	3. Post-deploy actions
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                               *
+*             1. Incremental Release (from 3.6.0)       *
+*                                                               *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+============ Build File ============
+
+The following name for the relative build list xml:
+	- buildList-tst.xml
+
+============ ARTIFACTS_LIST ============
+
+artf5272474 BPM - End User Configuration Activation - Old Device
+
+
+
+============ IS - Packages =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+bpm_package_is_brick   IttBpmEndUserManagementConsumer                        bpm_is_brick  Version: 3.8.0 
+bpm_package_is_vm      IttBpmEndUserContractConfigurationActivationSupport    bpm_is_vm     Version: 3.8.0 
+bpm_package_is_vm      IttBpmEndUserManagementConsumer                        bpm_is_vm     Version: 3.8.0 
+bpm_package_is_em      IttBpmEndUserManagementConsumer                        bpm_is_em     Version: 3.8.0 
+
+
+
+============ BPM - Projects =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+NA
+
+
+============ Custom Config =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+NA
+
+
+============ CAF =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+NA
+
+
+============ DB - Scripts ============
+NA
+
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                               *
+*            2. Full Release (of NA)                   *
+*                                                               *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+============ Build Files ============
+
+The following file name for the relative build list FULL xml:
+	- NA
+
+
+============ IS - Packages =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+NA
+
+
+============ BPM - Projects =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+NA
+
+
+============ Custom Config =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+NA
+
+
+============ CAF =============
+
+--------------------------------------------------------------------------
+| Deployment set   	-    Package Name   			  	-   Logical Instance
+--------------------------------------------------------------------------
+
+NA
+
+
+============ DB - Scripts ============
+NA
+
+
+
+
+============ IS - Configuration ============
+
+- Articles on the destination IS (indicated in parentheses) must be brought the following Integration Server objects:
+
+	- ENDPOINTS ALIAS
+  		Name:BPM
+			Da applicare la variable substitution seguente
+			    Http consumer endpoint:
+				(System Test):
+			 	http://RMHADOOPSRV06:52900/
+
+				(IntegrationTest):
+			 	http://rm-tst-bpmis-01:52900/
+
+				(UAT):
+			 	http://rm-uat-bpmis-01:52900/
+
+
+============= POST DEPLOY ACTIONS =============
+- After the deploy, the deployer has to restart every IS instance server:
+	1.	Default
+	2.	Brick
+	3.	VM
+	4.	EM
+
+- At least the deployer must enable to the execution every processes deployed before on this path:
+  http://[BPM_MWS HOST]:[BPM_MWS_PORT]/webm.apps.config.process.list

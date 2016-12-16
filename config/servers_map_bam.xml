@@ -1,0 +1,15 @@
+<servers>
+    <target_package_server name="bam_is_default">
+        <package name="IttBamConnection"/>
+        <package name="IttBamDataModel"/>
+        <package name="IttBamEventCollectorFramework"/>
+        <package name="IttBamEventCollectorService"/>
+        <package name="IttBamUtil"/>
+        <package name="IttBamDataModel"/>
+        <package name="IttBAMSimulatorCrashManagement"/>
+        <package name="IttBAMSimulatorEndUserOrderActivationManagement"/>
+    </target_package_server>
+    <target_project_server name="bam_pm_brick">
+        <project name="IttBamVoucherManagementBS/IttBamVoucherManagementBS"/>
+    </target_project_server>
+</servers>

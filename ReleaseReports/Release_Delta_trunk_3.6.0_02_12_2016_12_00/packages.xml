@@ -1,0 +1,1587 @@
+<svnLog> 
+<logentry
+   revision="10995">
+<author>fmartino</author>
+<date>2016-11-28T17:54:11.057628Z</date>
+<paths>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement/wsdl0</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncApplyPenaltyERPEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncApplyPenaltyERPEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncAssignERPChangeInstaller_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncAssignERPChangeInstaller_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCloseERPEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCloseERPEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateERPEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateERPEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateOTPServiceInventory_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateOTPServiceInventory_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncReactivateERPEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncReactivateERPEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRenewERPEndUserContract_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRenewERPEndUserContract_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRequestImeiCRMEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRequestImeiCRMEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncSuspendERPEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncSuspendERPEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncTransferOTPEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncTransferOTPEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateERPEndUserContract_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateERPEndUserContract_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateWrapperERPVoucher_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateWrapperERPVoucher_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_CallbackRequestImeiCRMEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_CallbackRequestImeiCRMEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_SyncUpdateERPEndUser_Input/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_SyncUpdateERPEndUser_Output/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AccountIdentificationSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AccountIdentificationTEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AccountIdentificationType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AddressType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AddressesType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AgencyType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncApplyPenaltyERPEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncApplyPenaltyERPEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncAssignERPChangeInstallerRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncAssignERPChangeInstallerResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCloseERPEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCloseERPEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateERPEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateERPEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateOTPServiceInventoryRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateOTPServiceInventoryResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncReactivateERPEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncReactivateERPEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRenewERPEndUserContractRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRenewERPEndUserContractResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRequestImeiCRMEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRequestImeiCRMEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncSuspendERPEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncSuspendERPEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncTransferOTPEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncTransferOTPEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateERPEndUserContractRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateERPEndUserContractResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateWrapperERPVoucherRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateWrapperERPVoucherResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CallbackRequestImeiCRMEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CallbackRequestImeiCRMEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicEndUserType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicEndUserUEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicsEndUserType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicsEndUserUEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ConfigurationType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CustomerEUCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CustomerSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentEDCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentEUCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentTEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceEDCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceTEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractACIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractEDCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractMEPType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractPECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractRECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractREEType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractSEEType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractTEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractUECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractUEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserCreateContractType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserEUCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserPECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserTEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EventEDCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EventUECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_GenericServiceResult/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_HeaderType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationREEType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationSEEType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationTEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_InstallerACIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_MonitoredObjectEUCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_MonitoredObjectType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OldEndUserTEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderDetailEDCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderEDCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderIdentificationEDCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderIdentificationSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PackageEndUserCreateType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PackageEndUserUEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PackageIdentificationType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PenaltyMEPType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PersonalDataEUCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PersonalDataPECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PolicyDataRECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PolicyDataSDIType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PolicyDataType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PortabilityEUCType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ProfileIAMDetailsPECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ProfileIAMPECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ProfilePECType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_SalesDetailsType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServiceEndUserContractUEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServiceEndUserCreateContractType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServicesEndUserContractUEUType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServicesEndUserCreateContractType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_SyncUpdateERPEndUserRequest/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_SyncUpdateERPEndUserResponse/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_TechnicalParameterType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_TechnicalParametersType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_WrapperVoucherDataType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_WrapperVoucherHeaderType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_WrapperVoucherPersonalDataType/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/schema_EndUserManagement/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/schema_EndUserManagement_2/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/schema_EndUserManagement_3/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncApplyPenaltyERPEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncAssignERPChangeInstaller_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncCloseERPEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncCreateERPEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncCreateOTPServiceInventory_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncReactivateERPEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncRenewERPEndUserContract_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncRequestImeiCRMEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncSuspendERPEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncTransferOTPEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncUpdateERPEndUserContract_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncUpdateWrapperERPVoucher_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_CallbackRequestImeiCRMEndUser_Response/node.ndf</path>
+<path
+   action="M"
+   prop-mods="false"
+   text-mods="true"
+   kind="file">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_SyncUpdateERPEndUser_Response/node.ndf</path>
+</paths>
+<msg>[artf5272474]: refresh WSDL to add CreationDate  on AsyncCreateERPAsset</msg>
+</logentry>
+<logentry
+   revision="10517">
+<author>fmartino</author>
+<date>2016-11-23T09:14:46.820852Z</date>
+<paths>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/manifest.bak</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/manifest.v3</path>
+</paths>
+<msg>[artf5272474]: modified package version</msg>
+</logentry>
+<logentry
+   revision="10516">
+<author>fmartino</author>
+<date>2016-11-23T09:13:43.893511Z</date>
+<paths>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserContractConfigurationActivationSupport/manifest.v3</path>
+</paths>
+<msg>[artf5272474]: modified package version</msg>
+</logentry>
+<logentry
+   revision="10506">
+<author>fmartino</author>
+<date>2016-11-22T17:03:59.583694Z</date>
+<paths>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement/wsdl0</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncApplyPenaltyERPEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncApplyPenaltyERPEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncAssignERPChangeInstaller_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncAssignERPChangeInstaller_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCloseERPEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCloseERPEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateERPEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateERPEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateOTPServiceInventory_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncCreateOTPServiceInventory_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncReactivateERPEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncReactivateERPEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRenewERPEndUserContract_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRenewERPEndUserContract_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRequestImeiCRMEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncRequestImeiCRMEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncSuspendERPEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncSuspendERPEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncTransferOTPEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncTransferOTPEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateERPEndUserContract_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateERPEndUserContract_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateWrapperERPVoucher_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_AsyncUpdateWrapperERPVoucher_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_CallbackRequestImeiCRMEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_CallbackRequestImeiCRMEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_SyncUpdateERPEndUser_Input/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/EndUserManagement_SyncUpdateERPEndUser_Output/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AccountIdentificationSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AccountIdentificationTEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AccountIdentificationType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AddressType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AddressesType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AgencyType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncApplyPenaltyERPEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncApplyPenaltyERPEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncAssignERPChangeInstallerRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncAssignERPChangeInstallerResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCloseERPEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCloseERPEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateERPEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateERPEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateOTPServiceInventoryRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncCreateOTPServiceInventoryResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncReactivateERPEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncReactivateERPEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRenewERPEndUserContractRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRenewERPEndUserContractResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRequestImeiCRMEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncRequestImeiCRMEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncSuspendERPEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncSuspendERPEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncTransferOTPEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncTransferOTPEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateERPEndUserContractRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateERPEndUserContractResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateWrapperERPVoucherRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_AsyncUpdateWrapperERPVoucherResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CallbackRequestImeiCRMEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CallbackRequestImeiCRMEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicEndUserType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicEndUserUEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicsEndUserType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CharacteristicsEndUserUEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ConfigurationType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CustomerEUCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_CustomerSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentEDCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentEUCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentTEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceComponentType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceEDCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceTEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_DeviceType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractACIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractEDCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractMEPType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractPECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractRECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractREEType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractSEEType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractTEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractUECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserContractUEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserCreateContractType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserEUCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserPECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EndUserTEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EventEDCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_EventUECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_GenericServiceResult/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_HeaderType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationREEType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationSEEType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationTEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_IdentificationType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_InstallerACIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_MonitoredObjectEUCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_MonitoredObjectType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OldEndUserTEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderDetailEDCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderEDCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderIdentificationEDCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderIdentificationSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_OrderSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PackageEndUserCreateType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PackageEndUserUEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PackageIdentificationType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PenaltyMEPType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PersonalDataEUCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PersonalDataPECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PolicyDataRECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PolicyDataSDIType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PolicyDataType/node.ndf</path>
+<path
+   text-mods="false"
+   kind="dir"
+   action="A"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PortabilityEUCType</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="A"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_PortabilityEUCType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ProfileIAMDetailsPECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ProfileIAMPECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ProfilePECType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_SalesDetailsType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServiceEndUserContractUEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServiceEndUserCreateContractType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServicesEndUserContractUEUType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_ServicesEndUserCreateContractType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_SyncUpdateERPEndUserRequest/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_SyncUpdateERPEndUserResponse/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_TechnicalParameterType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_TechnicalParametersType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_WrapperVoucherDataType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_WrapperVoucherHeaderType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/docTypeRef_tns_WrapperVoucherPersonalDataType/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/schema_EndUserManagement/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/schema_EndUserManagement_2/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/docTypes/schema_EndUserManagement_3/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncApplyPenaltyERPEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncAssignERPChangeInstaller_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncCloseERPEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncCreateERPEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncCreateOTPServiceInventory_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncReactivateERPEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncRenewERPEndUserContract_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncRequestImeiCRMEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncSuspendERPEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncTransferOTPEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncUpdateERPEndUserContract_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_AsyncUpdateWrapperERPVoucher_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_CallbackRequestImeiCRMEndUser_Response/node.ndf</path>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserManagementConsumer/ns/itt/bpm/endUserManagementConsumer/ws/consumer/EndUserManagement_/responseServices/EndUserManagement_SyncUpdateERPEndUser_Response/node.ndf</path>
+</paths>
+<msg>[artf5272474]: refresh WSDL to add Portability on AsyncCreateERPAsset</msg>
+</logentry>
+<logentry
+   revision="10505">
+<author>fmartino</author>
+<date>2016-11-22T17:00:09.390315Z</date>
+<paths>
+<path
+   text-mods="true"
+   kind="file"
+   action="M"
+   prop-mods="false">/bpm/source/trunk/packages/IttBpmEndUserContractConfigurationActivationSupport/ns/itt/bpm/endUserContractConfigurationActivationSupport/flow/createEndUserAndContractERP/flow.xml</path>
+</paths>
+<msg>[artf5272474]: added branch on ActivationMode</msg>
+</logentry>
+</svnLog>
