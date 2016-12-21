@@ -2,6 +2,10 @@ import subprocess
 import logging
 import sys
 
+__author__ = 'Roberto Palamaro'
+__version__ = '1.1'
+
+
 my_logger = 'BuildListGenerator'
 
 logger = logging.getLogger(my_logger)

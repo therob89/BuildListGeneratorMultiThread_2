@@ -34,6 +34,7 @@ bpm_data_type = 'BpmDataType'
 bam_data_type = 'BamDataType'
 ReportsFolder = 'ReportsFolder'
 template_file = 'template_file'
+template_file_bam = 'template_file_bam'
 xml_jar = 'xml_jar'
 cnf_list = 'cnf_list'
 
@@ -198,7 +199,10 @@ class BpmDataHolder:
         self.cnf_folder = None
         try:
             reports_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '.', self.config[ReportsFolder]))
-            template_name = self.config[template_file]
+            if mode == 'bam':
+                template_name = self.config[template_file_bam]
+            else:
+                template_name = self.config[template_file]
             template_position = os.path.abspath(os.path.join(os.path.dirname(__file__), '.', 'config/'+template_name))
             if not os.path.exists(reports_folder):
                 os.makedirs(reports_folder)
@@ -240,7 +244,8 @@ class BpmDataHolder:
             else:
                 _svn_link = self.prev_svn_link
             # -------------- Create Release note template ---------------------------
-            self.release_note = Rnc.ReleaseNoteCreator(template_position,
+            self.release_note = Rnc.ReleaseNoteCreator(self.data_type,
+                                                       template_position,
                                                        self.release_folder,
                                                        'ReleaseNote_' + str(only_day) + '_' + self.env+'.txt',
                                                        target_tag=self.target_tag,
@@ -439,9 +444,10 @@ class BpmDataHolder:
             sys.exit(-1)
         logger.info('List Files created Successfully!!!!!!!')
         logger.info('Creating BuildList file and Release note')
-        _x, _y, _z, _v = 0, 0, 0, 0
+        #_x, _y, _z, _v = 0, 0, 0, 0
         with open(self.build_list_list_file, 'w') as f:
             for d_t in self.data_type:
+                _x, _y, _z, _v = 0, 0, 0, 0
                 if d_t == 'config':
                     output_config, cnf_res, cache_list, cache_list_output = self.thread_output_for_buildList[d_t]
                     if not cnf_res:
@@ -477,6 +483,10 @@ class BpmDataHolder:
                     _db_list = self.thread_output_for_buildList[d_t]
                     for el in _db_list:
                         f.write(el)
+                elif d_t == 'analyticEngine':
+                    _optimize_list = self.thread_output_for_buildList[d_t]
+                    for el in _optimize_list:
+                        f.write(el)
                 for line_of_objs in self.release_note_objects[d_t]:
                     l = str(line_of_objs)
                     tokens = l.split('\t')
@@ -489,8 +499,8 @@ class BpmDataHolder:
                     _z = max(len(tokens[2]), _z)
                     if token_len == 4:
                         _v = max(len(tokens[3]), _v)
-
-            self.release_note.set_format_size(_x, _y, _z, _v)
+                self.release_note.set_format_size_by_type(d_t, _x, _y, _z, _v)
+            #self.release_note.set_format_size(_x, _y, _z, _v)
             for d_t in self.data_type:
                 logger.debug('Try to add %s to release note file' % d_t)
                 self.release_note.add_object_to_release_note(d_t, objects_key=self.release_note_objects[d_t])

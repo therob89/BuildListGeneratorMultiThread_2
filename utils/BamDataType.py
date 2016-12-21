@@ -360,8 +360,12 @@ class Optimize(BamDataType):
                                                    is_full=self.is_full))
         _f = open(self.list_file, 'w')
         for el in optimize_res:
+            if str(el).index('/') == 0:
+                el = el[1::]
+            el_r = 'bam_o4p_cnf \t %s \t %s' % (el, self.server_list[0])
             el = 'bam_o4p_cnf:' + el + ':' + self.server_list[0]
             self.output_optimize.append("%s\n" % el)
+            self.release_note_all_objs.append(el_r)
             _f.write("%s\n" % el)
         _f.close()
 
