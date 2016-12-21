@@ -27,6 +27,7 @@ class ReleaseNoteCreator:
                 'database': 'DB_SCRIPTS_',
                 'database_r': 'DB_R_SCRIPTS_',
                 'bpmProjects': 'BPM_PROJECTS_',
+                'bamProjects': 'BPM_PROJECTS_',
                 'caf': 'CAF_',
                 }
     tag_flag = {'tagName': False,
@@ -45,6 +46,7 @@ class ReleaseNoteCreator:
                 'database': False,
                 'database_r': False,
                 'bpmProjects': False,
+                'bamProjects': False,
                 'caf': False
                 }
 
@@ -274,17 +276,3 @@ class ReleaseNoteCreator:
             self.add_acls_to_release_note(_template, objects_key, server)
         elif data_type == 'providerHTTP':
             self.add_provider_to_release_note(_template, objects_key, server)
-
-
-'''
-RN = ReleaseNoteCreator("C:\\Users\\OCTO\\PycharmProjects\\BuildListToolMultithreading\\config\\TEMPLATE_ReleaseNote.txt",
-                        "C:\\Users\\OCTO\\PycharmProjects\\BuildListToolMultithreading\\config\\", "ReleaseProva.txt",
-                        None, None, None, None)
-
-RN.add_object_to_release_note('acls', 'brick', objects_key=['acl1', 'acl2'])
-RN.add_object_to_release_note('consumerHTTP', 'brick', objects_key=['consumer1', 'consumer2'])
-RN.add_object_to_release_note('cache', 'brick', objects_key=['CACHE MANGAER'])
-RN.add_object_to_release_note('globalVariables', 'brick', objects_key=['gv1', 'gv2'], objects_value={'gv1':'val1',
-                                                                                                     'gv2': 'val2'})
-
-'''

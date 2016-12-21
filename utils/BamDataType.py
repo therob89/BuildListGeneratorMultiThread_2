@@ -21,6 +21,8 @@ class BamDataType(object):
         self.release_note_objects_by_server = defaultdict(set)
         self.release_note_all_objs = list()
         self.server_list = server_list
+        if len(server_list) == 0:
+            logger.warning("Passed an empty server list for instance %s", self.__repr__(self))
         self.is_full = is_full
 
     def get_list_file(self):
@@ -43,10 +45,11 @@ class BamDataType(object):
 
 # Class for Config
 class Config(BamDataType):
-    config_regex_properties = ".*\.properties"
+    config_regex_properties = ".*logconfig\.properties"
     config_regex_cnf = ".*\.cnf"
     config_xpath = ".paths//path"
     cache_element_regex = ".*Caching/\w+.xml"
+    mws_regex = "/config/mws/\w+"
 
     def __init__(self, data_type, server_list, log_file, list_file, is_full=False):
         super(Config, self).__init__(data_type, server_list, log_file, list_file, is_full)
@@ -58,6 +61,7 @@ class Config(BamDataType):
         self.cache_list_output = list()
         # To process later
         self.cnf_res = defaultdict(set)
+        self.mws_server = self.server_list[-1]
         self.fill_list_file()
 
     def get_server_from_property_and_return_element(self, prop_element):
@@ -162,7 +166,8 @@ class Process(BamDataType):
                                                                list_file,
                                                                self.prj_to_server,
                                                                self.version_holder,
-                                                               is_full=self.is_full))
+                                                               is_full=self.is_full,
+                                                               handle_delete=True))
                 for prj in prj_set_from_log:
                     self.fill_server_processes(str(prj))
                     # Now process the server
@@ -187,7 +192,8 @@ class Process(BamDataType):
 # Class for Package
 class Package(BamDataType):
     packages_regex = "Itt\w+(?=/)"
-    packages_xpath = ".paths//path[@kind='file']"
+    #packages_xpath = ".paths//path[@kind='file']"
+    packages_xpath = ".paths//path"
     package_ds = "bam_pkg_is_"
 
     def __init__(self, data_type, server_list, log_file, list_file, translator, base_url, is_full=False):
@@ -285,34 +291,42 @@ class Database(BamDataType):
                 self.db_dml_rbk.append(db_el)
             elif 'dml' in db_el_lower and 'rollback' not in db_el_lower:
                 self.db_dml.append(db_el)
-        sql_header = 'bam_sql:'
-        sql_header_r = 'bam_sql'
-        sql_rbk_header = 'bam_sql_rbck:'
-        sql_rbk_header_r = 'bam_sql_rbck'
+        sql_header = 'bpm_sql:'
+        sql_header_r = 'bpm_sql'
+        sql_rbk_header = 'bpm_sql_rbck:'
+        sql_rbk_header_r = 'bpm_sql_rbck'
         if len(self.server_list) > 1:
             logger.warning('Database have more than 1 server target...check it')
         server = ':'+self.server_list[0]
         server_r = self.server_list[0]
         list_file = open(self.list_file, 'w')
         for ddl in self.db_ddl:
+            if str(ddl).index('/') == 0:
+                ddl = ddl[1::]
             el = sql_header+ddl+server
             el_v = "%s \t %s \t %s" % (sql_header_r, ddl, server_r)
             self.db_output.append("%s\n" % el)
             self.release_note_all_objs.append("%s\n" % el_v)
             list_file.write("%s\n" % el)
         for dml in self.db_dml:
+            if str(dml).index('/') == 0:
+                dml = dml[1::]
             el = sql_header+dml+server
             el_v = "%s \t %s \t %s" % (sql_header_r, dml, server_r)
             self.db_output.append("%s\n" % el)
             self.release_note_all_objs.append("%s\n" % el_v)
             list_file.write("%s\n" % el)
         for dml_rbk in self.db_dml_rbk:
+            if str(dml_rbk).index('/') == 0:
+                dml_rbk = dml_rbk[1::]
             el = sql_rbk_header+dml_rbk+server
             el_v = "%s \t %s \t %s" % (sql_rbk_header_r, dml_rbk, server_r)
             self.release_note_all_objs.append("%s\n" % el_v)
             self.db_output.append("%s\n" % el)
             list_file.write("%s\n" % el)
         for ddl_rbk in self.db_ddl_rbk:
+            if str(ddl_rbk).index('/') == 0:
+                ddl_rbk = ddl_rbk[1::]
             el = sql_rbk_header+ddl_rbk+server
             el_v = "%s \t %s \t %s" % (sql_rbk_header_r, ddl_rbk, server_r)
             self.db_output.append("%s\n" % el)
@@ -326,11 +340,9 @@ class Database(BamDataType):
         return self.release_note_all_objs
 
 
-#Class Optimize
-
 class Optimize(BamDataType):
     optimize_xpath = ".paths//path"
-    optimize_regex = "/optimize/.*"
+    optimize_regex = "/config/analyticEngine/\w+"
 
     def __init__(self, data_type, server_list, log_file, list_file, is_full=False):
         super(Optimize, self).__init__(data_type, server_list, log_file, list_file, is_full)
@@ -346,12 +358,50 @@ class Optimize(BamDataType):
         logger.debug('Creating list file for %s' % self.data_type)
         optimize_res = sorted(Pt.get_data_type_set(self.log_file, self.optimize_regex, self.optimize_xpath,
                                                    is_full=self.is_full))
+        _f = open(self.list_file, 'w')
         for el in optimize_res:
-            el = 'bam_cnf_optimize:' + el + ':' + self.server_list[0]
+            el = 'bam_o4p_cnf:' + el + ':' + self.server_list[0]
             self.output_optimize.append("%s\n" % el)
+            _f.write("%s\n" % el)
+        _f.close()
 
     def get_output(self):
             return self.output_optimize
+
+    def get_release_note_objects(self):
+        return self.release_note_all_objs
+
+
+class Caf(BamDataType):
+    caf_xpath = ".paths//path"
+    caf_regex = "/config/mws/\w+"
+    caf_portlet_header = 'bam_cnf_mws:'
+    caf_portlet_r_header = 'bam_cnf_mws'
+
+    def __init__(self, data_type, server_list, log_file, list_file, is_full=False):
+        super(Caf, self).__init__(data_type, server_list, log_file, list_file, is_full)
+        self.output_caf = list()
+        self.fill_list_file()
+
+    def fill_list_file(self):
+        logger.debug('Creating list file for %s' % self.data_type)
+        caf_ds = sorted(Pt.get_data_type_set(self.log_file, self.caf_regex, self.caf_xpath, is_full=self.is_full))
+        caf_server = self.server_list[0]
+        try:
+            with open(self.list_file, "w") as list_file:
+                for caf_record in caf_ds:
+                    out_string = self.caf_portlet_header + caf_record[1:] + ":" + caf_server
+                    out_rel_s = "%s \t %s \t %s" \
+                                % (self.caf_portlet_r_header, caf_record[1:], caf_server)
+                    self.output_caf.append("%s\n" % out_string)
+                    self.release_note_all_objs.append("%s\n" % out_rel_s)
+                    list_file.write("%s\n" % out_string)
+            list_file.close()
+        except IOError:
+            logger.error("IO ERROR check -> caf list file -> " + self.list_file)
+
+    def get_output(self):
+            return self.output_caf
 
     def get_release_note_objects(self):
         return self.release_note_all_objs
@@ -382,9 +432,11 @@ class BamWrapper:
             elif d_t == 'database':
                 self.data_holder[d_t] = Database(d_t, self.server_list, self.log_files, self.list_files,
                                                  is_full)
-            elif d_t == 'optimize':
+            elif d_t == 'analyticEngine':
                 self.data_holder[d_t] = Optimize(d_t, self.server_list, self.log_files, self.list_files,
                                                  is_full)
+            elif d_t == 'caf':
+                self.data_holder[d_t] = Caf(d_t, self.server_list, self.log_files, self.list_files, is_full)
             else:
                 logger.warning('Unknown data type: %s passed to Bam wrapper' % d_t)
         except KeyError as k_e:

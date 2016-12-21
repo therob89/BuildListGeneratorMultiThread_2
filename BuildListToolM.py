@@ -179,12 +179,14 @@ def write_delta_cnf_to_file(cnf_file_current,
 
 class BpmDataHolder:
 
-    def __init__(self, config, tag, environment,  current_point, mode_, previous_point=None, artifacts=None):
+    def __init__(self, config, tag, environment,  current_point, mode_, previous_point=None, prev_point_name=None,
+                 artifacts=None):
         self.prev_svn_link = previous_point
         self.curr_svn_link = current_point
         self.target_tag = tag
         self.env = environment
         self.artifacts = artifacts
+        self.prev_point = prev_point_name
         self.thread_output_for_buildList = dict()
         self.release_note_objects = dict()
         self.config = config
@@ -225,7 +227,12 @@ class BpmDataHolder:
             self.log_files = dict()
             self.list_files = dict()
             self.build_list_list_file = os.path.join(self.build_list_folder, 'buildList_'+str(self.env) + '.list')
-            self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_'+str(self.env) + '.xml')
+            if self.is_full:
+                self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_full.xml')
+            else:
+                self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_delta_'
+                                                        + str(self.prev_point).replace('/', '_')
+                                                        + '_' + str(self.target_tag).replace('/', '_') + '.xml')
             os.makedirs(self.release_folder)
             os.makedirs(self.build_list_folder)
             if self.is_full:
@@ -287,6 +294,14 @@ class BpmDataHolder:
                     th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
                                           args=(self.curr_svn_link + '/' + d_t,
                                                 self.log_files[d_t], self.is_full, self.artifacts))
+            elif d_t == 'analyticEngine':
+                th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
+                                      args=(self.curr_svn_link + '/config/' + d_t,
+                                            self.log_files[d_t], self.is_full, self.artifacts))
+            elif d_t == 'caf' and self.mode == 'bam':
+                th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
+                                      args=(self.curr_svn_link + '/config/mws/',
+                                            self.log_files[d_t], self.is_full, self.artifacts))
             else:
                 th = threading.Thread(target=thread_log_routine, name="Log_Thread__%s" % d_t,
                                       args=(self.curr_svn_link + '/' + d_t + '/',
@@ -477,8 +492,8 @@ class BpmDataHolder:
 
             self.release_note.set_format_size(_x, _y, _z, _v)
             for d_t in self.data_type:
+                logger.debug('Try to add %s to release note file' % d_t)
                 self.release_note.add_object_to_release_note(d_t, objects_key=self.release_note_objects[d_t])
-                logger.debug('Added %s to release note file' % d_t)
         logger.info('BuildList.list created succesfully!!!')
         f.close()
 
@@ -596,11 +611,11 @@ if __name__ == '__main__':
                     logger.debug("Checking link for previous point for bpm %s " % str(svn_p_link))
                     SvnTool.check_svn_url(svn_p_link)
                     logger.debug('Current and Previous point are correct...Go Ahead')
-                    BpmDataHolder(conf, target_tag, env, svn_link, mode, svn_p_link, parameters[artf_list])
+                    BpmDataHolder(conf, target_tag, env, svn_link, mode, svn_p_link, parameters[bpm_p_point],
+                                  parameters[artf_list])
             elif mode == 'bam':
-                logger.debug('Passed...Go Ahead in BAM mode')
                 if is_a_full:
-                    logger.debug('Passed...Go Ahead')
+                    logger.debug('Passed...Go Ahead in BAM mode')
                     BpmDataHolder(conf, target_tag, env, svn_link, mode)
                 else:
                     svn_p_link = conf[bam_root] + parameters[bpm_p_point]

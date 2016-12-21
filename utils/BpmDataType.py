@@ -303,24 +303,32 @@ class Database(BpmDataType):
         server_r = self.server_list[0]
         list_file = open(self.list_file, 'w')
         for ddl in self.db_ddl:
+            if str(ddl).index('/') == 0:
+                ddl = ddl[1::]
             el = sql_header+ddl+server
             el_v = "%s \t %s \t %s" % (sql_header_r, ddl, server_r)
             self.db_output.append("%s\n" % el)
             self.release_note_all_objs.append("%s\n" % el_v)
             list_file.write("%s\n" % el)
         for dml in self.db_dml:
+            if str(dml).index('/') == 0:
+                dml = dml[1::]
             el = sql_header+dml+server
             el_v = "%s \t %s \t %s" % (sql_header_r, dml, server_r)
             self.db_output.append("%s\n" % el)
             self.release_note_all_objs.append("%s\n" % el_v)
             list_file.write("%s\n" % el)
         for dml_rbk in self.db_dml_rbk:
+            if str(dml_rbk).index('/') == 0:
+                dml_rbk = dml_rbk[1::]
             el = sql_rbk_header+dml_rbk+server
             el_v = "%s \t %s \t %s" % (sql_rbk_header_r, dml_rbk, server_r)
             self.release_note_all_objs.append("%s\n" % el_v)
             self.db_output.append("%s\n" % el)
             list_file.write("%s\n" % el)
         for ddl_rbk in self.db_ddl_rbk:
+            if str(ddl_rbk).index('/') == 0:
+                ddl_rbk = ddl_rbk[1::]
             el = sql_rbk_header+ddl_rbk+server
             el_v = "%s \t %s \t %s" % (sql_rbk_header_r, ddl_rbk, server_r)
             self.db_output.append("%s\n" % el)

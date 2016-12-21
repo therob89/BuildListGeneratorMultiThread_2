@@ -63,7 +63,10 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
             obj_to_artifact = defaultdict(set)
             artifact_to_objs = defaultdict(set)
         for log in log_elements:
-            rev = log.attrib["revision"]
+            rev = int(log.attrib["revision"])
+            if not rev:
+                logger.warning("Using copyfrom-rev instead of rev")
+                rev = int(log.attrib["copyfrom-rev"])
             if not is_full:
                 msg = log.find('msg')
                 if msg is not None:
@@ -93,7 +96,7 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                             if kind == 'dir':
                                 try:
                                     # Update revision for deleted object and add it to delete folder set
-                                    temp = delete_set_folder[data_el]
+                                    temp = int(delete_set_folder[data_el])
                                     delete_set_folder[data_el] = max(temp, rev)
                                 except KeyError:
                                     delete_set_folder[data_el] = rev
@@ -103,7 +106,7 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                                     if data:
                                         # Update revision for deleted object and add it to delete file set
                                         data_el = data[0]
-                                        temp = delete_set_file[data_el]
+                                        temp = int(delete_set_file[data_el])
                                         delete_set_file[data_el] = max(temp, rev)
                                 except KeyError:
                                     delete_set_file[data_el] = rev
@@ -117,7 +120,7 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                                         if _artifact is not None:
                                             obj_to_artifact[data_el].add(_artifact)
                                             artifact_to_objs[_artifact].add(data_el)
-                                        temp = res[data_el]
+                                        temp = int(res[data_el])
                                         res[data_el] = max(temp, rev)
                                 except KeyError:
                                     res[data_el] = rev
@@ -127,7 +130,8 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
             keys_to_delete = set()
             for del_folder in delete_set_folder:
                 for el in res:
-                    if del_folder in el and delete_set_folder[del_folder] >= res[el]:
+                    #if el in del_folder and delete_set_folder[del_folder] >= res[el]:
+                    if (del_folder in el or el in del_folder) and int(delete_set_folder[del_folder]) >= int(res[el]):
                         keys_to_delete.add(el)
             # Getting the result keys
             res_keys = res.keys()
@@ -148,12 +152,12 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                         out_string = 'ARTIFACT: %s \n' % art
                         for element in artifact_to_objs[art]:
                             out_string += " %s  : Info %s \n" % \
-                                          (element, version_holder.get_version_for_object(element))
+                                          (element, str(version_holder.get_version_for_object(element)))
                         outfile.write(out_string)
                 else:
                     for el in output_res:
                         if el in obj_keys:
-                            outfile.write(el+'\t'+version_holder.get_version_for_object(el)+'\n')
+                            outfile.write(el+'\t'+str(version_holder.get_version_for_object(el))+'\n')
             return set(output_res)
     except ET.ParseError as p_e:
         sys.exit('Parsing error %s ... get this error %s' % (str(log_f), str(p_e)))
