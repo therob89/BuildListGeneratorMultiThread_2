@@ -1,6 +1,7 @@
 import sys
 from collections import defaultdict
 import logging
+import os
 import xml.etree.ElementTree as ET
 import re
 
@@ -21,6 +22,10 @@ cnf_xpath_map = {'consumerHTTP': "./record",
                  'globalVariables': ".//value[@name='key']",
                  'globalVariables_v': ".//value[@name='value']",
                  'acls': ".//record[@javaclass='com.wm.app.b2b.server.ACLGroup']"}
+
+acl_blacklist = ['MonitorUsers', 'CentralUsers', 'Default', 'Replicators', 'SimulationUsers',
+                 'Optimize', 'Developers', 'DeployerAdmin', 'Anonymous', 'CentralAdministrators',
+                 'Administrators', 'Internal', 'MonitorAdministrators']
 
 
 def parse_config_file(path):
@@ -54,6 +59,8 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
         root = ET.parse(log_f).getroot()
         log_elements = root.findall(".//logentry")
         res = dict()
+        # Added here
+        real_path_name = dict()
         delete_set_file = dict()
         delete_set_folder = dict()
         _artifact = None
@@ -106,6 +113,7 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                                     if data:
                                         # Update revision for deleted object and add it to delete file set
                                         data_el = data[0]
+                                        real_path_name[data_el] = path.text
                                         temp = int(delete_set_file[data_el])
                                         delete_set_file[data_el] = max(temp, rev)
                                 except KeyError:
@@ -117,6 +125,7 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                                     data = re.findall(r"%s" % regex, path.text)
                                     if data:
                                         data_el = data[0]
+                                        real_path_name[data_el] = path.text
                                         if _artifact is not None:
                                             obj_to_artifact[data_el].add(_artifact)
                                             artifact_to_objs[_artifact].add(data_el)
@@ -131,7 +140,8 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
             for del_folder in delete_set_folder:
                 for el in res:
                     #if el in del_folder and delete_set_folder[del_folder] >= res[el]:
-                    if (del_folder in el or el in del_folder) and int(delete_set_folder[del_folder]) >= int(res[el]):
+                    if del_folder in real_path_name[el] and int(delete_set_folder[del_folder]) >= int(res[el]):
+                    #if (del_folder in el or el in del_folder) and int(delete_set_folder[del_folder]) >= int(res[el]):
                         keys_to_delete.add(el)
             # Getting the result keys
             res_keys = res.keys()
@@ -245,7 +255,9 @@ def parse_cnf_file(cnf_type, input_file):
         res = set()
         for el in elements:
             if cnf_type == 'acls':
-                res.add(el.attrib['name'])
+                element = el.attrib['name']
+                if element not in acl_blacklist:
+                    res.add(element)
             elif cnf_type in ['consumerHTTP', 'consumerHTTPS', 'providerHTTP', 'providerHTTPS']:
                 res.add(el.attrib['name'])
             else:

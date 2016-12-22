@@ -127,7 +127,7 @@ class Config(BamDataType):
 # Class for Process
 class Process(BamDataType):
     bpm_projects_regex = "IttBam\w+/\w+.(?=.config|.process)"
-    bpm_projects_xpath = ".paths//path[@kind='file']"
+    bpm_projects_xpath = ".paths//path"
     process_ds = "bam_prj_is_"
 
     def __init__(self, data_type, server_list, log_file, list_file, translator, base_url, is_full=False):
@@ -166,8 +166,7 @@ class Process(BamDataType):
                                                                list_file,
                                                                self.prj_to_server,
                                                                self.version_holder,
-                                                               is_full=self.is_full,
-                                                               handle_delete=True))
+                                                               is_full=self.is_full))
                 for prj in prj_set_from_log:
                     self.fill_server_processes(str(prj))
                     # Now process the server
@@ -250,7 +249,6 @@ class Package(BamDataType):
                     for el in sorted(self.release_note_objects_by_server[server]):
                         pkg_el = "%s\n" % el
                         self.release_note_all_objs.append(pkg_el)
-
             list_file.close()
         except IOError as e:
             logger.error('Problem occurs for output file for package %s ' % str(e))

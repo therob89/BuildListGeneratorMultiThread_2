@@ -18,7 +18,7 @@ class VersionHolder:
         self.full_mode = full_mode
         self.verbose = verbose
         self.manifest = '/manifest.v3'
-        self.manifest_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'manifest.v3'))
+        self.manifest_file = os.path.join(os.getcwd(), 'manifest.v3')
         self.package_flag = package_flag
         self.url = url
         self.versions = defaultdict(str)
@@ -52,7 +52,7 @@ class VersionHolder:
 
     def get_version_single_package(self, package):
         try:
-            Svn_Tool.check_out_file(self.url + package + self.manifest)
+            Svn_Tool.check_out_file(str(self.url + package + self.manifest))
             (version, dep, startup) = ParserTool.parse_manifest(self.manifest_file, self.verbose)
             if self.verbose:
                 self.versions[package] = "%s \n Dependencies \n %s \n Startup: \n %s " % (version, dep, startup)

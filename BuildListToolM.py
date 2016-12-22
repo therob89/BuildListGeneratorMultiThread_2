@@ -2,7 +2,8 @@ import logging.config
 import logging
 import shutil
 import argparse
-import queue
+#import queue
+from multiprocessing import Queue
 import os
 import utils.ParsingOperations as ParserTool
 import utils.SvnOperations as SvnTool
@@ -42,7 +43,9 @@ cnf_list = 'cnf_list'
 my_logger = 'BuildListGenerator'
 
 logger = None
-failed_threads = queue.Queue()
+#failed_threads = queue.Queue()
+
+failed_threads = Queue()
 
 
 def thread_log_routine(url, output_file, full=False, artifacts=None):

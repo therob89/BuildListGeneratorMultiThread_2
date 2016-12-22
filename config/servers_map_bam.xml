@@ -9,7 +9,7 @@
         <package name="IttBAMSimulatorCrashManagement"/>
         <package name="IttBAMSimulatorEndUserOrderActivationManagement"/>
     </target_package_server>
-    <target_project_server name="bam_pm_brick">
+    <target_project_server name="bam_pm_pm">
         <project name="IttBamFileManagement/FileVoucherManagementBatchSync"/>
     </target_project_server>
 </servers>
