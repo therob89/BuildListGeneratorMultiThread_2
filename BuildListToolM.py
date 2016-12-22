@@ -230,11 +230,23 @@ class BpmDataHolder:
             self.list_for_dh = defaultdict(list)
             self.log_files = dict()
             self.list_files = dict()
-            self.build_list_list_file = os.path.join(self.build_list_folder, 'buildList_'+str(self.env) + '.list')
-            if self.is_full:
-                self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_full.xml')
+            if self.mode == 'bam':
+                self.build_list_list_file = os.path.join(self.build_list_folder, 'buildList_bam_' +
+                                                         str(self.env) + '.list')
             else:
-                self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_delta_'
+                self.build_list_list_file = os.path.join(self.build_list_folder, 'buildList_'+str(self.env) + '.list')
+            if self.is_full:
+                if self.mode == 'bam':
+                    self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_bam_full.xml')
+                else:
+                    self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_full.xml')
+            else:
+                if self.mode == 'bam':
+                    self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_bam_delta_'
+                                                            + str(self.prev_point).replace('/', '_')
+                                                            + '_' + str(self.target_tag).replace('/', '_') + '.xml')
+                else:
+                    self.build_list_xml_file = os.path.join(self.build_list_folder, 'buildList_delta_'
                                                         + str(self.prev_point).replace('/', '_')
                                                         + '_' + str(self.target_tag).replace('/', '_') + '.xml')
             os.makedirs(self.release_folder)
