@@ -1,0 +1,211 @@
+Release $TAGNAME_ - $TODAY_
+
+Table of contents:
+	1. Incremental Release
+		- Deploy Steps
+			1- Build File
+			2- Artifacts List
+			3- Deploy Procedure
+			4- Scripts SQL
+			5- IS - Configuration - Var Subs
+			6- BPM-IS - Packages
+			7- BPM Projects
+			8- CAF
+			9- Post Deploy actions
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+             1. Incremental Release (from $PREVIOUS_TAG)
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+============ Build File ============
+
+The following name for the relative build list xml:
+	- $BUILD_LIST_FILE_NAME
+
+
+============ ARTIFACTS_LIST ============
+
+$ARTIFACTS_LIST_
+
+
+============ DEPLOY PROCEDURE ==============
+
+1) Suspend in permanent/persistent way all webmethods triggers
+2) Deploy Packages and BPM Processes following this order (if present into the section IS -Package and BPM - Projects):
+	 1) bpm_pkg_is_nodef
+	 2) bpm_pkg_is_brick
+	 3) bpm_pkg_is_vm
+	 4) bpm_pkg_is_em
+	 5) bpm_prj_is_brick
+	 6) bpm_prj_is_vm
+	 7) bpm_prj_is_em
+3) Exclude the node from the Load Balancer
+4) Deploy, if present, bpm_pkg_is_default packages
+5) Restart all the instances: Brick, Vm, Em, default
+6) Restart all webmethods triggers to keep them active
+7) Include the node into the Load Balancer
+8) Repeat all above steps for each BPM nodes
+
+
+============ IS - Configuration ============
+
+- Articles on the destination IS (indicated in parentheses) must be brought the following Integration Server objects:
+
+- ENDPOINTS ALIAS (Provider)
+Instance                       Name                           Enabled
+----------------------------------------------------------------------
+$E_PROVIDER_
+
+			Apply the following variable substitution
+			    Http consumer endpoint:
+				(System Test):
+			 	http://RMHADOOPSRV06:52900/
+
+				(IntegrationTest):
+			 	http://rm-tst-bpmis-01:52900/
+
+				(UAT):
+			 	http://rm-uat-bpmis-01:52900/
+
+- ENDPOINTS ALIAS(Consumer)
+
+1) HTTP:
+
+Instance                       Name                           Enabled
+----------------------------------------------------------------------
+$HTTP_CONSUMER_
+
+            With variable substitution:
+
+                        Host: hostname of ESB mediator
+
+                        Port: port of ESB mediator 
+
+                        Username: <Username for the relative environment>
+
+                        Password: <Username for the relative environment>
+
+            Apply the following variable substitution
+
+                        ENV             HOSTNAME            USER                PORT
+                    --------------------------------------------------------------------
+                    System-Test:       rm-dev-med-01        Administrator       52100
+                    Integration-Test   rm-tst-med-01        Administrator       52100
+                    UAT:               rm-uat-med-01        Administrator       52100
+                    PRE-PROD:          rm-pre-med-01        Administrator       52100
+
+2) HTTPS:
+
+Instance                       Name                           Enabled
+----------------------------------------------------------------------
+$HTTPS_CONSUMER_
+
+            With variable substitution:
+
+                        Host: hostname of ESB mediator
+
+                        Port: port of ESB mediator 
+
+                        Username: <Username for the relative environment>
+
+                        Password: <Username for the relative environment>
+
+            Apply the following variable substitution
+
+                        ENV             HOSTNAME            USER                PORT
+                    --------------------------------------------------------------------
+                    System-Test:       rm-dev-med-01        Administrator       52111
+                    Integration-Test   rm-tst-med-01        Administrator       52111
+                    UAT:               rm-uat-med-01        Administrator       52111
+                    PRE-PROD:          rm-pre-med-01        Administrator       52111
+
+
+
+============ DB - Scripts ============
+--------------------------------------------------------------------------
+$HEADER_DB_
+--------------------------------------------------------------------------
+
+$DB_SCRIPTS_
+
+To Rollback:
+
+$DB_R_SCRIPTS_
+
+
+============ IS Config ================
+NB: Set Automatic reload at deploy time
+
+1)GLOBAL VARIABLES:
+
+INSTANCE                       NAME                           VALUE
+----------------------------------------------------------------------
+$GV_LIST
+
+----------------------------------------------------------------------
+
+2)CACHE:
+
+INSTANCE                       CACHE MANAGER                  RELOAD
+----------------------------------------------------------------------
+$CACHES_LIST
+
+----------------------------------------------------------------------
+3) ACLS:
+
+INSTANCE                       ACL NAME
+---------------------------------------
+$ACLS_LIST
+
+---------------------------------------
+
+============ IS - Packages =============
+
+--------------------------------------------------------------------------
+$HEADER_PACKAGES_
+--------------------------------------------------------------------------
+
+$IS_PACKAGES_
+
+============ BPM - Projects =============
+
+--------------------------------------------------------------------------
+$HEADER_PROJECTS_
+--------------------------------------------------------------------------
+
+$BPM_PROJECTS_
+
+
+============ Custom Config =============
+
+--------------------------------------------------------------------------
+$HEADER_CUSTOM_CONFIG_
+--------------------------------------------------------------------------
+
+$CUSTOM_CONFIG_
+
+
+These files must be copied into 
+         /app/bin/SAG/BPM_IS/IntegrationServer/instances/[BPM-Instance]/config/customConfig
+
+ with the following mapping:
+    Logical Instance            BPM-Instance
+ 1)   bpm_cstcfg_em         ->      Em
+ 2)   bpm_cstcfg_Vm         ->      Vm
+ 3)   bpm_cstcfg_Brick      ->      Brick
+ 4)   bpm_cstcfg_default    ->      default
+
+
+
+============ CAF =============
+
+----------------------------------------------------------------------------------------
+$HEADER_MWS_
+----------------------------------------------------------------------------------------
+
+$CAF_
+
+

@@ -213,12 +213,12 @@ class BpmDataHolder:
             only_day = time.strftime("%d_%m_%Y", time.gmtime(time.time()+3600))
             if self.prev_svn_link is None and self.artifacts is None:
                 self.is_full = True
-                release_folder_name = "Release_Full_" + curr_time
+                release_folder_name = "Release_" + self.mode + "_" + self.env + "_Full_" + "_" + curr_time
             else:
                 curr_point_normalized = self.curr_svn_link.split('/')[-1]
                 prev_point_normalized = self.prev_svn_link.split('/')[-1]
-                release_folder_name = "Release_Delta_" + curr_point_normalized + "_" \
-                                      + prev_point_normalized + "_" + curr_time
+                release_folder_name = "Release_" + self.mode + "_" + self.env + "_Delta_" \
+                                      + str(curr_point_normalized) + "_" + str(prev_point_normalized) + "_" + curr_time
             self.release_folder = os.path.join(reports_folder, release_folder_name)
             self.build_list_folder = os.path.join(self.release_folder, 'buildLists')
             if self.mode == 'bam':
@@ -647,7 +647,8 @@ if __name__ == '__main__':
                     logger.debug("Checking link for previous point for bpm %s " % str(svn_p_link))
                     SvnTool.check_svn_url(svn_p_link)
                     logger.debug('Current and Previous point are correct...Go Ahead')
-                    BpmDataHolder(conf, target_tag, env, svn_link, mode, svn_p_link, parameters[artf_list])
+                    BpmDataHolder(conf, target_tag, env, svn_link, mode, svn_p_link, parameters[bpm_p_point],
+                                  parameters[artf_list])
             else:
                 logger.warning('Unknown mode...exiting')
         else:

@@ -334,6 +334,7 @@ class Database(BpmDataType):
             self.db_output.append("%s\n" % el)
             self.release_note_all_objs.append("%s\n" % el_v)
             list_file.write("%s\n" % el)
+        list_file.close()
 
     def get_output(self):
             return self.db_output
