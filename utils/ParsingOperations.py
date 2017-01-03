@@ -161,7 +161,8 @@ def get_data_type_set(log_f, regex, xpath, outfile=None, translator=None,
                     for art in artifact_to_objs.keys():
                         out_string = 'ARTIFACT: %s \n' % art
                         for element in artifact_to_objs[art]:
-                            out_string += " %s  : Info %s \n" % \
+                            if element in output_res:
+                                out_string += " %s  : Info %s \n" % \
                                           (element, str(version_holder.get_version_for_object(element)))
                         outfile.write(out_string)
                 else:
@@ -288,6 +289,10 @@ f.close()
 #ET.parse("C:\\Users\\OCTO\\PycharmProjects\\BuildListToolMultithreading\\prova.xml")
 
 '''
+
+print(parse_map_file("C:\\Users\\OCTO\\PycharmProjects\\BuildListToolMultithreading\\config\\servers_map_bam.xml",
+                     "target_package_server",
+                     "package"))
 
 
 def parse_cnf_file_wrapper(cnf_type, input_file):

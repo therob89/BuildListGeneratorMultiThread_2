@@ -1,11 +1,12 @@
 <servers>
-    <target_package_server name="bam_is_default">
+	<target_package_server name="bam_is_core">
         <package name="IttBamConnection"/>
         <package name="IttBamDataModel"/>
         <package name="IttBamEventCollectorFramework"/>
+    </target_package_server>
+    <target_package_server name="bam_is_default">
         <package name="IttBamEventCollectorService"/>
         <package name="IttBamUtil"/>
-        <package name="IttBamDataModel"/>
         <package name="IttBAMSimulatorCrashManagement"/>
         <package name="IttBAMSimulatorEndUserOrderActivationManagement"/>
     </target_package_server>
